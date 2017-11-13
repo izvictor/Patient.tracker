@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  patient.tracker.api:
+    image: patient.tracker.api
+    build:
+      context: ./Patient.Tracker.API
+      dockerfile: Dockerfile
