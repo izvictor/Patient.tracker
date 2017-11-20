@@ -11,7 +11,7 @@ using System;
 namespace Patient.Tracker.DataAccess.Migrations
 {
     [DbContext(typeof(PatientTrackerDbContext))]
-    [Migration("20171120110439_Initial")]
+    [Migration("20171120221935_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -126,6 +126,58 @@ namespace Patient.Tracker.DataAccess.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Patient.Tracker.Model.Address", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("CityId");
+
+                    b.Property<string>("Street");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CityId");
+
+                    b.ToTable("Addresses");
+                });
+
+            modelBuilder.Entity("Patient.Tracker.Model.City", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("CountryId");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(64);
+
+                    b.Property<string>("PostalCode")
+                        .HasMaxLength(32);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CountryId");
+
+                    b.ToTable("Cities");
+                });
+
+            modelBuilder.Entity("Patient.Tracker.Model.Country", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("IsoCode")
+                        .HasMaxLength(3);
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(64);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Countries");
+                });
+
             modelBuilder.Entity("Patient.Tracker.Model.Patient", b =>
                 {
                     b.Property<int>("Id")
@@ -181,6 +233,19 @@ namespace Patient.Tracker.DataAccess.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("Patient.Tracker.Model.PatientAddress", b =>
+                {
+                    b.Property<int>("PatientId");
+
+                    b.Property<int>("AddressId");
+
+                    b.HasKey("PatientId", "AddressId");
+
+                    b.HasIndex("AddressId");
+
+                    b.ToTable("PatientAddress");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<int>")
@@ -223,6 +288,35 @@ namespace Patient.Tracker.DataAccess.Migrations
                     b.HasOne("Patient.Tracker.Model.Patient")
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Patient.Tracker.Model.Address", b =>
+                {
+                    b.HasOne("Patient.Tracker.Model.City", "City")
+                        .WithMany()
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Patient.Tracker.Model.City", b =>
+                {
+                    b.HasOne("Patient.Tracker.Model.Country", "Country")
+                        .WithMany()
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Patient.Tracker.Model.PatientAddress", b =>
+                {
+                    b.HasOne("Patient.Tracker.Model.Address", "Address")
+                        .WithMany("PatientAddresses")
+                        .HasForeignKey("AddressId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Patient.Tracker.Model.Patient", "Patient")
+                        .WithMany("PatientAddresses")
+                        .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
