@@ -6,14 +6,12 @@ namespace Patient.Tracker.DataAccess.Context
 {
     public class PatientTrackerDbContext : IdentityDbContext<PatientModel, IdentityRole<int>, int>
     {
+        public DbSet<PatientModel> Patients { get; set; }
+
         public PatientTrackerDbContext(DbContextOptions<PatientTrackerDbContext> options) : base(options)
         {
 
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Patient.Tracker;Trusted_Connection=True;");
-        }
     }
 }
