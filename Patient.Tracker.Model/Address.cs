@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Patient.Tracker.Model
 {
+    [Table("Address")]
     public class Address
     {
         [Key]

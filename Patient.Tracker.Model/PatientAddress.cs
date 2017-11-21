@@ -2,6 +2,7 @@
 
 namespace Patient.Tracker.Model
 {
+    [Table("PatientAddress")]
     public class PatientAddress
     {
         public int PatientId { get; set; }

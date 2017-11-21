@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Patient.Tracker.Model
 {
+    [Table("City")]
     public class City
     {
         [Key]
@@ -19,6 +19,5 @@ namespace Patient.Tracker.Model
 
         [ForeignKey("CountryId")]
         public virtual Country Country { get; set; }
-
     }
 }

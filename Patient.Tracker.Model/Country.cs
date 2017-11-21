@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Patient.Tracker.Model
 {
+    [Table("Country")]
     public class Country
     {
         [Key]
