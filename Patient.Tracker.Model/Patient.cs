@@ -10,6 +10,12 @@ namespace Patient.Tracker.Model
         [MaxLength(64)]
         public string SocialSecurityNumber { get; set; }
 
+        [MaxLength(64)]
+        public string Firstname { get; set; }
+
+        [MaxLength(128)]
+        public string Lastname { get; set; }
+
         public virtual IEnumerable<PatientAddress> PatientAddresses { get; set; }
 
     }
