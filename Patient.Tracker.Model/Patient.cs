@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
 
@@ -16,7 +17,12 @@ namespace Patient.Tracker.Model
         [MaxLength(128)]
         public string Lastname { get; set; }
 
+        public Sex Sex { get; set; }
+
+        public DateTime BirthdayDate { get; set; }
+
         public virtual IEnumerable<PatientAddress> PatientAddresses { get; set; }
+
 
     }
 }
