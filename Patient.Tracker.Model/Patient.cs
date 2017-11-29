@@ -23,6 +23,6 @@ namespace Patient.Tracker.Model
 
         public virtual IEnumerable<PatientAddress> PatientAddresses { get; set; }
 
-
+        public virtual IEnumerable<PatientAppointment> PatientAppointments { get; set; }
     }
 }

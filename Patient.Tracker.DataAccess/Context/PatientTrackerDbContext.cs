@@ -21,8 +21,11 @@ namespace Patient.Tracker.DataAccess.Context
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<PatientAppointment>()
+                .HasKey(x => new { x.PatientId, x.AppointmentId });
+
             modelBuilder.Entity<PatientAddress>()
-                .HasKey(x => new {x.PatientId, x.AddressId});
+                .HasKey(x => new { x.PatientId, x.AddressId });
 
             modelBuilder.Entity<PatientAddress>()
                 .HasOne(pt => pt.Patient)
@@ -33,6 +36,16 @@ namespace Patient.Tracker.DataAccess.Context
                 .HasOne(pt => pt.Address)
                 .WithMany(t => t.PatientAddresses)
                 .HasForeignKey(pt => pt.AddressId);
+
+            modelBuilder.Entity<PatientAppointment>()
+                .HasOne(pt => pt.Patient)
+                .WithMany(p => p.PatientAppointments)
+                .HasForeignKey(pt => pt.PatientId);
+
+            modelBuilder.Entity<PatientAppointment>()
+                .HasOne(pt => pt.Appointment)
+                .WithMany(t => t.PatientAppointments)
+                .HasForeignKey(pt => pt.AppointmentId);
         }
     }
 }
