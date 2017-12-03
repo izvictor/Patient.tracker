@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Patient.Tracker.API", "Patient.Tracker.API\Patient.Tracker.API.csproj", "{1960B195-D653-421A-B9D6-5F1DA626196D}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Patient.Tracker.DataAccess", "Patient.Tracker.DataAccess\Patient.Tracker.DataAccess.csproj", "{634F1838-C30A-499C-86F5-7775E20C3711}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Patient.Tracker.Model", "Patient.Tracker.Model\Patient.Tracker.Model.csproj", "{941BF03D-07FB-44EB-84B2-AA2F60B6C3BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patient.Tracker.Portal", "Patient.Tracker.Portal\Patient.Tracker.Portal.csproj", "{4F2D5A0E-3599-401A-81AB-7AE85F5A376C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,10 @@ Global
 		{941BF03D-07FB-44EB-84B2-AA2F60B6C3BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{941BF03D-07FB-44EB-84B2-AA2F60B6C3BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{941BF03D-07FB-44EB-84B2-AA2F60B6C3BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F2D5A0E-3599-401A-81AB-7AE85F5A376C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F2D5A0E-3599-401A-81AB-7AE85F5A376C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F2D5A0E-3599-401A-81AB-7AE85F5A376C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F2D5A0E-3599-401A-81AB-7AE85F5A376C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
